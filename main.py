@@ -12,7 +12,6 @@ from functools import wraps
 from sqlalchemy import Table, Column, Integer, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 import os
-
 from dotenv import load_dotenv
 
 load_dotenv("C:\Python\.env.txt")
@@ -25,7 +24,7 @@ Base = declarative_base()
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secret_key
 Bootstrap(app)
-
+print(app.config['SECRET_KEY'])
 ##CONNECT TO DB
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
