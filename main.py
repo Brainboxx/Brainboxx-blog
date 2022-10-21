@@ -13,11 +13,17 @@ from sqlalchemy import Table, Column, Integer, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 import os
 
+from dotenv import load_dotenv
+
+load_dotenv("C:\Python\.env.txt")
+
+secret_key = os.getenv('SECRET_KEY')
+
 Base = declarative_base()
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = secret_key
 Bootstrap(app)
 
 ##CONNECT TO DB
